@@ -1,7 +1,14 @@
 # Projeto-de-Pesquisa-Geral-DAO-JDBC-MySQL-Laragon-em-Java-VS-Code
 Projeto de pesquisa e pratica do dao, jdbc e mysql em java
 
-# **Padrão DAO (Data Access Object) E sua importância**
+1. O que é o padrão de projeto Data Access Object (DAO)?
+O padrão de projeto DAO é uma forma de organizar o código para lidar com a comunicação entre o seu programa e um banco de dados.
+
+O padrão de projeto DAO (Data Access Object) é como a planta de um arquiteto para lidar com dados em software. É um modelo que os desenvolvedores usam para criar um sistema estruturado e organizado para obter informações de uma fonte de dados, como um banco de dados. Em vez de lidar diretamente com os detalhes minuciosos de como os dados são armazenados e recuperados, o padrão DAO atua como um guia, abstraindo as complexidades e oferecendo uma maneira clara de interagir com os dados.
+
+
+
+ ** 2 Padrão DAO (Data Access Object) E sua importância**
 O padrão de projeto DAO surgiu com a necessidade de separarmos a lógica de negócios da lógica de persistência de dados. Este padrão permite que possamos mudar a forma de persistência sem que isso influencie em nada na lógica de negócio, além de tornar nossas classes mais legíveis.
 
 Classes DAO são responsáveis por trocar informações com o SGBD e fornecer operações CRUD e de pesquisas, elas devem ser capazes de buscar dados no banco e transformar esses em objetos ou lista de objetos, fazendo uso de listas genéricas (BOX 3), também deverão receber os objetos, converter em instruções SQL e mandar para o banco de dados.
@@ -13,5 +20,5 @@ Se aplicarmos este padrão corretamente ele vai abstrair completamente o modo de
 Também conseguimos centralizar a troca de dados com o SGBD (Sistema Gerenciador de Banco de Dados), teremos um ponto único de acesso a dados, tendo assim nossa aplicação um ótimo design orientado a objeto.
 
 # **Fontes:**
-PADRAO DAO E SUA IMPORTANCIA: https://www.devmedia.com.br/dao-pattern-persistencia-de-dados-utilizando-o-padrao-dao/30999
-PADRAO DAO EXPLICAÇÂO: https://dev.to/diariodeumacdf/padroes-dao-e-repository-13nj
+1-https://www.devmedia.com.br/dao-pattern-persistencia-de-dados-utilizando-o-padrao-dao/30999
+2-https://dev.to/diariodeumacdf/padroes-dao-e-repository-13nj
