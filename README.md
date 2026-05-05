@@ -26,11 +26,14 @@ O padrão DAO abstrai e encapsula os detalhes de como os dados são salvos, recu
 Ele centraliza todo o código relacionado ao banco de dados em classes DAO dedicadas. Isso significa que o restante da aplicação não precisa espalhar as operações de banco de dados por todo o seu código; em vez disso, interage com os métodos DAO.
 O padrão DAO promove a reutilização de código ao fornecer um conjunto de métodos genéricos que podem ser aplicados a diferentes entidades. Como resultado, você pode usar padrões de acesso a banco de dados semelhantes em várias partes do seu aplicativo.
 
-##  4. Exemplo Prático do padrao DAO:
+##  4. Exemplo Prático do padrao DAO: (Utilizando o modelo do mapa conceitual)
 Imagina que o sistema é para gerenciar uma Biblioteca de Livros.
+
+
 
 
 
 # **Fontes:**
 1-https://www.devmedia.com.br/dao-pattern-persistencia-de-dados-utilizando-o-padrao-dao/30999
+
 2-https://www.geeksforgeeks.org/system-design/data-access-object-pattern/
