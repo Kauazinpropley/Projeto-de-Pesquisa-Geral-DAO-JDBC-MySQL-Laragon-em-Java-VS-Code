@@ -1,14 +1,14 @@
 # Projeto-de-Pesquisa-Geral-DAO-JDBC-MySQL-Laragon-em-Java-VS-Code
 Projeto de pesquisa e pratica do dao, jdbc e mysql em java
 
-1. O que é o padrão de projeto Data Access Object (DAO)?
+#  **Data Access Object (DAO)**
+##  1. O que é o padrão de projeto Data Access Object (DAO)?
 O padrão de projeto DAO é uma forma de organizar o código para lidar com a comunicação entre o seu programa e um banco de dados.
 
 O padrão de projeto DAO (Data Access Object) é como a planta de um arquiteto para lidar com dados em software. É um modelo que os desenvolvedores usam para criar um sistema estruturado e organizado para obter informações de uma fonte de dados, como um banco de dados. Em vez de lidar diretamente com os detalhes minuciosos de como os dados são armazenados e recuperados, o padrão DAO atua como um guia, abstraindo as complexidades e oferecendo uma maneira clara de interagir com os dados.
 
 
-
- ** 2 Padrão DAO (Data Access Object) E sua importância**
+##  2. Padrão DAO (Data Access Object) E sua importância
 O padrão de projeto DAO surgiu com a necessidade de separarmos a lógica de negócios da lógica de persistência de dados. Este padrão permite que possamos mudar a forma de persistência sem que isso influencie em nada na lógica de negócio, além de tornar nossas classes mais legíveis.
 
 Classes DAO são responsáveis por trocar informações com o SGBD e fornecer operações CRUD e de pesquisas, elas devem ser capazes de buscar dados no banco e transformar esses em objetos ou lista de objetos, fazendo uso de listas genéricas (BOX 3), também deverão receber os objetos, converter em instruções SQL e mandar para o banco de dados.
@@ -19,6 +19,18 @@ Se aplicarmos este padrão corretamente ele vai abstrair completamente o modo de
 
 Também conseguimos centralizar a troca de dados com o SGBD (Sistema Gerenciador de Banco de Dados), teremos um ponto único de acesso a dados, tendo assim nossa aplicação um ótimo design orientado a objeto.
 
+##  3. Funcionalidades do padrão de projeto Data Access Object (DAO)
+Vamos ver como o padrão DAO permite uma interação eficaz e consistente com um banco de dados, ao mesmo tempo que abstrai as complexidades subjacentes.
+
+O padrão DAO abstrai e encapsula os detalhes de como os dados são salvos, recuperados, atualizados ou excluídos em um banco de dados. Essa abstração protege o restante da aplicação da implementação do banco de dados.
+Ele centraliza todo o código relacionado ao banco de dados em classes DAO dedicadas. Isso significa que o restante da aplicação não precisa espalhar as operações de banco de dados por todo o seu código; em vez disso, interage com os métodos DAO.
+O padrão DAO promove a reutilização de código ao fornecer um conjunto de métodos genéricos que podem ser aplicados a diferentes entidades. Como resultado, você pode usar padrões de acesso a banco de dados semelhantes em várias partes do seu aplicativo.
+
+##  4. Exemplo Prático do padrao DAO:
+Imagina que o sistema é para gerenciar uma Biblioteca de Livros.
+
+
+
 # **Fontes:**
 1-https://www.devmedia.com.br/dao-pattern-persistencia-de-dados-utilizando-o-padrao-dao/30999
-2-https://dev.to/diariodeumacdf/padroes-dao-e-repository-13nj
+2-https://www.geeksforgeeks.org/system-design/data-access-object-pattern/
