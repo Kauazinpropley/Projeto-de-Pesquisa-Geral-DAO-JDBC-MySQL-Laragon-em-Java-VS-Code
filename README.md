@@ -26,20 +26,111 @@ Ele centraliza todo o código relacionado ao banco de dados em classes DAO dedic
 ##  4. Exemplo Prático do padrao DAO: (Utilizando o modelo do mapa conceitual)
 Imagina que o sistema é para gerenciar uma Biblioteca de Livros.
 
-```// br.escola.dao_base.model.Livro
-public class Livro {
-    private Integer id;
-    private String titulo;
-    
+1. Camada Model (O Objeto)
+Aqui definimos o que é um Livro. É uma classe simples que apenas guarda informações.
+
+Arquivo: `src/main/java/br/escola/dao_base/model/Livro.java`
+
+
+    public class Livro {
+         private Integer id;
+        private String titulo;
+        private String autor;
+
     // Construtores, Getters e Setters
-    public Livro(Integer id, String titulo) {
+    public Livro() {}
+    public Livro(Integer id, String titulo, String autor) {
         this.id = id;
         this.titulo = titulo;
+        this.autor = autor;
     }
-    public String getTitulo() { return titulo; }
-}```
+    // ... (getters e setters aqui)
+    }
+2. Camada DAO (O Contrato/Interface)
+Aqui fazemos a lista de promessas. O que o nosso sistema de biblioteca deve ser capaz de fazer?
+
+Arquivo: `src/main/java/br/escola/dao_base/dao/LivroDao.java`
 
 
+    public interface LivroDao {
+        void inserir(Livro obj);
+        void atualizar(Livro obj);
+        void deletarPorId(Integer id);
+        Livro buscarPorId(Integer id);
+        List<Livro> buscarTodos();
+    }
+3. Camada DAO.Impl (O Trabalho com JDBC)
+Aqui é onde a mágica acontece. Usamos o JDBC para falar com o banco de dados de forma segura usando PreparedStatements.
+
+Arquivo: `src/main/java/br/escola/dao_base/dao/impl/LivroDaoJDBC.java`
+
+
+    public class LivroDaoJDBC implements LivroDao {
+        private Connection conn;
+
+    public LivroDaoJDBC(Connection conn) {
+        this.conn = conn;
+    }
+
+    @Override
+    public void inserir(Livro obj) {
+        PreparedStatement st = null;
+        try {
+            // O "?" protege contra o vilão SQL Injection!
+            st = conn.prepareStatement(
+                "INSERT INTO livros (titulo, autor) VALUES (?, ?)");
+            
+            st.setString(1, obj.getTitulo());
+            st.setString(2, obj.getAutor());
+            st.executeUpdate();
+        } 
+        catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        } 
+        finally {
+            // Checklist de qualidade: sempre fechar o comando!
+            DB.closeStatement(st);
+        }
+    }
+    // ... (outros métodos seguem a mesma lógica)
+    }
+4. Camada DB (A Conexão)
+Esta classe é o "Chaveiro" que abre a conexão com o banco.
+
+Arquivo: `src/main/java/br/escola/dao_base/db/ConnectionFactory.java`
+
+
+        public class ConnectionFactory {
+            public static Connection getConnection() {
+                // Lógica para ler o db.properties e conectar
+                // ...
+                return connection;
+            }
+        }
+5. Camada App (O Menu/Orquestração)
+É aqui que o usuário interage. O Main não sabe nada de SQL, ele só conhece o LivroDao.
+
+Arquivo: `src/main/java/br/escola/dao_base/app/Main.java`
+
+
+    public class Main {
+        public static void main(String[] args) {
+            // 1. Abre a conexão
+            Connection conn = ConnectionFactory.getConnection();
+        
+        // 2. Instancia o ajudante (DAO)
+        LivroDao livroDao = new LivroDaoJDBC(conn);
+
+        System.out.println("--- Teste: Inserindo Livro ---");
+        Livro novoLivro = new Livro(null, "O Pequeno Príncipe", "Antoine de Saint-Exupéry");
+        livroDao.inserir(novoLivro);
+        
+        System.out.println("Livro salvo com sucesso!");
+        
+        // 3. Fecha a conexão no final de tudo
+        DB.closeConnection();
+        }
+    }
 
 
 
