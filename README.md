@@ -76,7 +76,7 @@ Arquivo: `src/main/java/br/escola/dao_base/dao/impl/LivroDaoJDBC.java`
     public void inserir(Livro obj) {
         PreparedStatement st = null;
         try {
-            // O "?" protege contra o vilão SQL Injection!
+            // O "?" protege contra o SQL Injection
             st = conn.prepareStatement(
                 "INSERT INTO livros (titulo, autor) VALUES (?, ?)");
             
@@ -95,7 +95,7 @@ Arquivo: `src/main/java/br/escola/dao_base/dao/impl/LivroDaoJDBC.java`
     // ... (outros métodos seguem a mesma lógica)
     }
 4. Camada DB (A Conexão)
-Esta classe é o "Chaveiro" que abre a conexão com o banco.
+Esta classe é a "Chave" que abre a conexão com o banco.
 
 Arquivo: `src/main/java/br/escola/dao_base/db/ConnectionFactory.java`
 
