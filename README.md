@@ -106,7 +106,7 @@ Arquivo: `src/main/java/br/escola/dao_base/db/ConnectionFactory.java`
                 // ...
                 return connection;
             }
-        }
+            }
 5. Camada App (O Menu/Orquestração)
 É aqui que o usuário interage. O Main não sabe nada de SQL, ele só conhece o LivroDao.
 
@@ -179,7 +179,7 @@ public class Livro implements Serializable {
     private String autor;
 
     // Construtores, Getters, Setters, Equals e HashCode
-}
+    }
 B. O Contrato (Interface)
 Local: src/main/java/br/escola/dao_base/dao/LivroDao.java
 
@@ -190,7 +190,7 @@ public interface LivroDao {
     void deleteById(Integer id);
     Livro findById(Integer id);
     List<Livro> findAll();
-}
+    }
 C. A Implementação JDBC
 Local: src/main/java/br/escola/dao_base/dao/impl/LivroDaoJDBC.java
 
@@ -200,7 +200,7 @@ public class LivroDaoJDBC implements LivroDao {
 
     public LivroDaoJDBC(Connection conn) {
         this.conn = conn;
-    }
+        }
 
     @Override
     public void insert(Livro obj) {
@@ -216,8 +216,8 @@ public class LivroDaoJDBC implements LivroDao {
                     if (rs.next()) obj.setId(rs.getInt(1));
                 }
             }
-        } catch (SQLException e) {
-            throw new DbException("Erro ao inserir livro: " + e.getMessage());
+            } catch (SQLException e) {
+                throw new DbException("Erro ao inserir livro: " + e.getMessage());
         }
     }
     // Outros métodos...
