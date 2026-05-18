@@ -221,8 +221,8 @@ public class LivroDaoJDBC implements LivroDao {
         }
     }
     // Outros métodos...
-}
-5. Checklist de Qualidade e Práticas de Produção
+    }
+# **5. Checklist de Qualidade e Práticas de Produção**
 [ ] Try-with-resources: Sempre utilize para garantir que ResultSet e Statement sejam fechados mesmo em caso de erro.
 
 [ ] Gestão de Transações: Para operações que envolvem mais de uma tabela, use conn.setAutoCommit(false) e conn.commit() ou conn.rollback().
