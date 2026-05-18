@@ -244,3 +244,9 @@ public class LivroDaoJDBC implements LivroDao {
 1-https://www.devmedia.com.br/dao-pattern-persistencia-de-dados-utilizando-o-padrao-dao/30999
 
 2-https://www.geeksforgeeks.org/system-design/data-access-object-pattern/
+
+3-https://www.vogella.com/tutorials/MySQLJava/article.html
+
+4-https://docs.oracle.com/javase/tutorial/jdbc/
+
+5-https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html
